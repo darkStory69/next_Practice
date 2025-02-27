@@ -2,7 +2,11 @@
 import React from "react";
 
 const AddCart = () => {
-  return <div onClick={() => console.log("Click")}>AddCart</div>;
+  return (
+    <div className="btn btn-primary" onClick={() => console.log("Click")}>
+      AddCart
+    </div>
+  );
 };
 
 export default AddCart;
