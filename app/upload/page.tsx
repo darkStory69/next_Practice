@@ -17,6 +17,10 @@ const UploadPage = () => {
       )}
       <CldUploadWidget
         uploadPreset="nextapp"
+        options={{
+          sources: ["local"],
+          multiple: false,
+        }}
         onSuccess={(result) => {
           if (result.event !== "sucess") return;
           const info = result.info as CloudinaryResult;
