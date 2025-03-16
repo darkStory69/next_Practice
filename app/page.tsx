@@ -1,12 +1,15 @@
 import Link from "next/link";
 import ProductPage from "./components/Product";
+import { getServerSession } from "next-auth";
+import { authOptions } from "./api/auth/[...nextauth]/route";
 
-export default function Home() {
+export default async function Home() {
+  const session = await getServerSession(authOptions);
   return (
-    <div>
-      <h1>Hello Next.js</h1>
+    <main>
+      <h1>Hello {session && <span>{session.user!.name}</span>} </h1>
       <Link href="/users">Users</Link>
       <ProductPage />
-    </div>
+    </main>
   );
 }
